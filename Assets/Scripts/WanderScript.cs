@@ -6,8 +6,8 @@ public class WanderScript : MonoBehaviour
     // Set the initial speed of the translation movement and time it takes to get to the point.
     // These can also be altered in Unity.
 
-    public int MoveSpeed = 5;
-    public int WanderTime = 3;
+    private int MoveSpeed = 5;
+    private int WanderTime = 3;
     private Vector3 PointDirection;
     private float ChangeDirection;
 
@@ -40,7 +40,7 @@ public class WanderScript : MonoBehaviour
         int ranX = Random.Range(-5, 5);
         int ranZ = Random.Range(-5, 5);
 
-        PointDirection = new Vector3(ranX, 1, ranZ);
+        PointDirection = new Vector3(ranX, 0, ranZ);
         ChangeDirection = WanderTime;
     }
 }
