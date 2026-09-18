@@ -1,28 +1,34 @@
 using UnityEngine;
 
-public class FleeScript : MonoBehaviour
+public class Flee : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 0.5f;
-    private Rigidbody rb;
 
+    private Rigidbody AIRB;
+
+    [SerializeField]
+    private Transform EvadeTF;
+    private Transform AITF;
+
+    private float _maxAcceleration = 0.7f;
+
+    private Vector3 _direction;
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        AIRB = GetComponent<Rigidbody>();
+        AITF = GetComponent<Transform>();
     }
 
-    void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        Flee();
+        _direction = transform.position - EvadeTF.position;
     }
 
-    void Flee()
+    private void FixedUpdate()
     {
-        
-        //Define direction to go
-        Vector3 forceDirection = transform.forward * _moveSpeed;
-
-        //Execute going
-        rb.AddForce(forceDirection, ForceMode.Impulse);
+        AIRB.AddForce(_direction.normalized * _maxAcceleration, ForceMode.Impulse);
     }
-
 }
