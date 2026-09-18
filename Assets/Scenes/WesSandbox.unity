@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &53474906
 Transform:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &77055509
 AudioListener:
   m_ObjectHideFlags: 0
@@ -507,7 +507,7 @@ Transform:
   m_GameObject: {fileID: 183846260}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 1, z: 18}
+  m_LocalPosition: {x: -21, y: 1, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2513,12 +2513,12 @@ GameObject:
   - component: {fileID: 2105146078}
   - component: {fileID: 2105146077}
   m_Layer: 0
-  m_Name: ThirdPersonCamera
+  m_Name: Doggy Cam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2105146076
 Transform:
   m_ObjectHideFlags: 0
