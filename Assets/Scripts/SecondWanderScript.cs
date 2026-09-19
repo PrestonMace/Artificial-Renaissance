@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SecondWanderScript : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 0.3f;
+    /*[SerializeField] private float _moveSpeed = 0.3f;
     [SerializeField] private float _minWanderDistance = 3f;
     [SerializeField] private float _maxWanderDistance = 8f;
     [SerializeField] private float _viewAngle = 45f;
@@ -57,5 +57,5 @@ public class SecondWanderScript : MonoBehaviour
         Vector3 randomPoint = transform.position + randomDirection * randomDistance;
 
         return randomPoint;
-    }
+    }*/
 }

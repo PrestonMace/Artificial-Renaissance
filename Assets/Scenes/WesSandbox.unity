@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 463194637}
   m_Layer: 0
   m_Name: Wall1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -852,6 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc1f1ef1a840f540b2f5a9ecc2b9f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Seek
+  TargetObject: {fileID: 183846260}
   TargetTF: {fileID: 183846264}
 --- !u!1001 &562553138
 PrefabInstance:
@@ -1237,7 +1238,7 @@ GameObject:
   - component: {fileID: 1128489512}
   m_Layer: 0
   m_Name: Wall4
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1811,7 +1812,7 @@ GameObject:
   - component: {fileID: 1524849443}
   m_Layer: 0
   m_Name: Wall2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2205,7 +2206,7 @@ GameObject:
   - component: {fileID: 1857369556}
   m_Layer: 0
   m_Name: Wall3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
