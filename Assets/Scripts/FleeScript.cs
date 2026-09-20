@@ -1,4 +1,5 @@
 using UnityEngine;
+using Unity.Mathematics;
 
 public class Flee : MonoBehaviour
 {
@@ -9,10 +10,9 @@ public class Flee : MonoBehaviour
     private Transform EvadeTF;
     private Transform AITF;
 
-    private float _maxAcceleration = 0.7f;
+    private float _maxAcceleration = 0.4f;
 
     private Vector3 _direction;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,4 +31,5 @@ public class Flee : MonoBehaviour
     {
         AIRB.AddForce(_direction.normalized * _maxAcceleration, ForceMode.Impulse);
     }
+
 }

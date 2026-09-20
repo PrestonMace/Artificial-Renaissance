@@ -13,7 +13,7 @@ public class Wander : MonoBehaviour
     // Larger numbers means further away.
 
     [SerializeField]
-    private float wanderOffset = 5f;
+    private float wanderOffset = 4f;
 
     // Radius increases the area of randomness the target can wander to.
     // Larger numbers means a wider range.

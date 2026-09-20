@@ -1,80 +1,42 @@
-using Unity.Mathematics;
 using UnityEngine;
-using static UnityEngine.UI.Image;
+using Unity.Mathematics;
 
-public class Seek : MonoBehaviour
+public class SimpleSeek : MonoBehaviour
 {
 
-    //initializes variables
     private Rigidbody AIRB;
 
     [SerializeField]
-    private GameObject TargetObject;
-
-    [SerializeField]
-    private Transform TargetTF;
+    private Transform SeekTF;
     private Transform AITF;
 
-    private float _desiredVelocity;
-    private float _currentVelocity;
-    private float _arriveForce;
-    private float _arriveSpeed;
-    private float _decelerationConstant = 0.4f;
-    private float _upperSpeedLimit = 10f;
+    private float _maxAcceleration = 0.19f;
 
     private Vector3 _direction;
 
     //for whisker code
     private Vector3 whiskerOrigin;
-    private float whiskerMaxDistance = 2.5f;
-    private float wReturnForceStregnth = 9f;
+    private float whiskerMaxDistance = 2f;
+    private float wReturnForceStregnth = 4f;
 
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         AIRB = GetComponent<Rigidbody>();
         AITF = GetComponent<Transform>();
     }
 
-    private void SeekStuff()
+    // Update is called once per frame
+    void Update()
     {
-        //get the direction to the target and the current velocity
-        _direction = TargetTF.position - transform.position;
-        _currentVelocity = AIRB.linearVelocity.magnitude;
-
-        _arriveSpeed = _direction.magnitude * _decelerationConstant;
-
-        //caps the exponential arrival speed if the AI is too far
-        if (_arriveSpeed > 7f)
-        {
-            _arriveSpeed = 7f;
-        }
-        
-        //add the extra arrive speed to our force
-        if (_direction.magnitude < _upperSpeedLimit)
-        {
-            _desiredVelocity = _direction.magnitude + _arriveSpeed;
-        } else //take into account long distances
-        {
-            _desiredVelocity = _upperSpeedLimit;
-        }
-
-            /*
-             * the final force to arrive at takes into account how fast
-             * we want to be going and how fast we are going already
-             */
-            _arriveForce = _desiredVelocity - _currentVelocity;
-
-        //adds the force to arrive at the target
-        AIRB.AddForce(_direction.normalized * _arriveForce, ForceMode.Impulse);
+        _direction = SeekTF.position - transform.position;
     }
 
-    //uses Raycasts for whiskers
     private void AvoidObstacles()
     {
 
         whiskerOrigin = AITF.position;
-        
+
         //make 5 of them rotated on the Z axis in even increments
         Vector3[] whiskerDirections = new Vector3[]
         {
@@ -90,7 +52,7 @@ public class Seek : MonoBehaviour
         {
             RaycastHit hitInfo;
 
-            if (Physics.Raycast(whiskerOrigin, dir, out hitInfo, whiskerMaxDistance) && hitInfo.collider.gameObject != TargetObject && hitInfo.collider.gameObject.tag != "Wall")
+            if (Physics.Raycast(whiskerOrigin, dir, out hitInfo, whiskerMaxDistance) && hitInfo.collider.gameObject.tag != "Wall")
             {
                 //Debug.Log("Hit " + hitInfo.collider.name);
 
@@ -119,10 +81,10 @@ public class Seek : MonoBehaviour
         }
     }
 
-    //run the physics-based functions at a fixed rate
     private void FixedUpdate()
     {
-        SeekStuff();
+        AIRB.AddForce(_direction.normalized * _maxAcceleration, ForceMode.Impulse);
         AvoidObstacles();
     }
+
 }
