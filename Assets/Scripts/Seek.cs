@@ -20,14 +20,14 @@ public class Seek : MonoBehaviour
     private float _arriveForce;
     private float _arriveSpeed;
     private float _decelerationConstant = 0.4f;
-    private float _upperSpeedLimit = 10f;
+    private float _upperSpeedLimit = 20f;
 
     private Vector3 _direction;
 
     //for whisker code
     private Vector3 whiskerOrigin;
     private float whiskerMaxDistance = 2.5f;
-    private float wReturnForceStregnth = 9f;
+    private float wReturnForceStregnth = 10f;
 
 
     void Start()
@@ -66,7 +66,7 @@ public class Seek : MonoBehaviour
             _arriveForce = _desiredVelocity - _currentVelocity;
 
         //adds the force to arrive at the target
-        AIRB.AddForce(_direction.normalized * _arriveForce, ForceMode.Impulse);
+        AIRB.AddForce(_direction.normalized * _arriveForce);
     }
 
     //uses Raycasts for whiskers
